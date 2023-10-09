@@ -2,14 +2,18 @@ name: Build and Deploy to GKE
 
 on:
   push:
-    branches: [ "master" ]
+    branches:
+      - main
+    # pull_request:
+    paths:
+      - "GKE/**"
 
 env:
-  # This needed to be declared in Github Vars, Perhaps for transparency, Declaring here.   
+  # This needed to be declared in Github Vars, Perhaps for transparency, Declaring here.
   PROJECT_ID: prod-rvsharma-com
   GAR_LOCATION: us-central1 # TODO: update region of the Artifact Registry
-  GKE_CLUSTER: rv-cluster    # TODO: update to cluster name
-  GKE_LOCATION: us-central1   # TODO: update to cluster zone
+  GKE_CLUSTER: rv-cluster # TODO: update to cluster name
+  GKE_LOCATION: us-central1 # TODO: update to cluster zone
   DEPLOYMENT_NAME: gke-test # TODO: update to deployment name
   REPOSITORY: rv-docker-repo # TODO: update to Artifact Registry docker repository
   IMAGE: rv-app
@@ -21,18 +25,18 @@ jobs:
     environment: production
 
     permissions:
-      contents: 'read'
-      id-token: 'write'
+      contents: "read"
+      id-token: "write"
 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
       # Configure Workload Identity Federation and generate an access token.
-      - id: 'auth'
-        uses: 'google-github-actions/auth@v1'
+      - id: "auth"
+        uses: "google-github-actions/auth@v1"
         with:
-          token_format: 'access_token'
+          token_format: "access_token"
           workload_identity_provider: "projects/579455901498/locations/global/workloadIdentityPools/rv-tf-github-pool/providers/rv-tf-github-provider"
           service_account: "rv-tf-sa@prod-rvsharma-com.iam.gserviceaccount.com"
 
@@ -58,7 +62,7 @@ jobs:
           "$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:$GITHUB_SHA"
           docker tag nginxdemos/hello \
           "$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:latest"
-          
+
           #      # Push the Docker image to Google Artifact Registry
       - name: Publish
         run: |-
