@@ -29,7 +29,7 @@ jobs:
         uses: 'google-github-actions/auth@v1'
         with:
           token_format: 'access_token'
-          workload_identity_provider: "projects/579455901498/locations/global/workloadIdentityPools/rv-tf-gh-pool/providers/rv-tf-github-provider"
+          workload_identity_provider: "projects/579455901498/locations/global/workloadIdentityPools/rv-tf-github-pool/providers/rv-tf-github-provider"
           service_account: "rv-tf-sa@prod-rvsharma-com.iam.gserviceaccount.com"
 
       # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
