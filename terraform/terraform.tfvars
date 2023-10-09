@@ -1,18 +1,18 @@
-project_id = "prod-rvsharma-com"
-pool_id = "rv-tf-gh-pool"
-provider_id = "rv-tf-gh-provider"
+project_id           = "prod-rvsharma-com"
+pool_id              = "rv-tf-github-pool"
+provider_id          = "rv-tf-github-provider"
 sa_mapping_attribute = "attribute.repository/shrutipawar2711/tf-poc"
-sa_name = "rv-tf-sa"
+sa_name              = "rv-tf-sa"
 
-location = "us-central1"
+location      = "us-central1"
 repository_id = "rv-docker-repo"
 
 subnets = [
-{
-subnet_name   = "subnet-01"
-subnet_ip     = "10.206.0.0/20"
-subnet_region = "us-central1"
-},
+  {
+    subnet_name   = "subnet-01"
+    subnet_ip     = "10.206.0.0/20"
+    subnet_region = "us-central1"
+  },
 ]
 
 network_name = "rv-vpc"

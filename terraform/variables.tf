@@ -1,5 +1,5 @@
 variable "project_id" {
-  type = string
+  type        = string
   description = "The ID of the project in which resources will be deployed"
 }
 
@@ -10,37 +10,37 @@ variable "issuer_uri" {
 }
 
 variable "pool_id" {
-  type = string
+  type        = string
   description = "Workload Identity Pool ID"
 }
 
 variable "provider_id" {
-  type = string
+  type        = string
   description = "Workload Identity Pool Provider id"
 }
 
 variable "sa_mapping_attribute" {
-  type = string
+  type        = string
   description = "WIF provider attributes"
 }
 
 variable "sa_name" {
-  type = string
+  type        = string
   description = "Name of the Google service account to be created"
 }
 
 variable "location" {
-  type = string
+  type        = string
   description = "The name of the location this repository is located in"
 }
 
 variable "repository_id" {
-  type = string
+  type        = string
   description = "The last part of the repository name, for example:repo1"
 }
 
 variable "network_name" {
-  type = string
+  type        = string
   description = "Name of the VPC network"
 }
 
@@ -52,7 +52,7 @@ variable "subnets" {
 variable "secondary_ranges" {
   type = map(list(object({
     range_name = string,
-    ip_cidr_range = string })))
+  ip_cidr_range = string })))
   description = "Secondary ranges that will be used in some of the subnets"
   default     = {}
 }
