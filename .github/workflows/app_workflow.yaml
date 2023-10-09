@@ -3,8 +3,7 @@ name: Build and Deploy to GKE
 on:
   push:
     branches: [ "master" ]
-    paths-ignore:
-      - ./
+
 
 env:
   PROJECT_ID: prod-rvsharma-com
