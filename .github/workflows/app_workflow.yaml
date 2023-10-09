@@ -56,12 +56,13 @@ jobs:
           echo $$GITHUB_SHA
           docker tag nginxdemos/hello \
           "$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:$GITHUB_SHA"
+          docker tag nginxdemos/hello \
+          "$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:latest"
           
           #      # Push the Docker image to Google Artifact Registry
       - name: Publish
         run: |-
-          docker push "$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:$GITHUB_SHA"
-          docker push "$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:latest"
+          docker push "$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE" --all-tags
 
       # Deploy the Docker image to the GKE cluster
       - name: Deploy
