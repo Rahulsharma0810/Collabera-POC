@@ -1,7 +1,7 @@
 project_id           = "prod-rvsharma-com"
 pool_id              = "rv-tf-github-pool"
 provider_id          = "rv-tf-github-provider"
-sa_mapping_attribute = "attribute.repository/shrutipawar2711/tf-poc"
+sa_mapping_attribute = "attribute.repository/Rahulsharma0810/Collabera-POC"
 sa_name              = "rv-tf-sa"
 
 location      = "us-central1"
