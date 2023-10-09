@@ -1,7 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: test-deployment
+  name: webapp-dpl
+  namespace: webapp
 spec:
   replicas: 1
   selector:
@@ -13,5 +14,5 @@ spec:
         app: webapp
     spec:
       containers:
-      - name: webapp-container
-        image: "us-central1-docker.pkg.dev/prod-rvsharma-com/rv-docker-repo/rv-app:latest"
+        - name: webapp-container
+          image: "us-central1-docker.pkg.dev/prod-rvsharma-com/rv-docker-repo/rv-app:latest"
