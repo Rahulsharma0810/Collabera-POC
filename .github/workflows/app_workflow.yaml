@@ -5,8 +5,8 @@ on:
     branches:
       - main
     # pull_request:
-    paths:
-      - "GKE/**"
+    # paths:
+    #   - "GKE/**"
 
 env:
   # This needed to be declared in Github Vars, Perhaps for transparency, Declaring here.
